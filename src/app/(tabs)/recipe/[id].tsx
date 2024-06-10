@@ -264,12 +264,12 @@ const styles = StyleSheet.create({
     marginLeft: wp(2),
   },
   ingredientText: {
-    fontSize: hp(1.7),
+    fontSize: hp(2),
     fontWeight: '500',
     color: 'black',
   },
   ingredientMeasureText: {
-    fontSize: hp(1.7),
+    fontSize: hp(2),
     fontWeight: '800',
     color: 'black',
     marginLeft: wp(1),

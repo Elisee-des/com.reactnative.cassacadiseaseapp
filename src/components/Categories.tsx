@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { Category } from "@/types";
+import Colors from "@/constants/Colors";
 
 interface CategoriesProps {
   categories: Category[];
@@ -36,7 +37,7 @@ export default function Categories({
               <View style={buttonStyle}>
                 <Image
                   source={{ uri: category.strCategoryThumb }}
-                  style={{ width: hp(8), height: hp(8), borderRadius: hp(3) }}
+                  style={{ width: hp(8), height: hp(8), borderRadius: hp(4) }}
                 />
               </View>
               <Text
@@ -44,7 +45,7 @@ export default function Categories({
                   textAlign: "center",
                   marginTop: 5,
                   fontSize: hp(2),
-                  color: isActive ? "#f64e32" : "black",
+                  color: isActive ? `${Colors.primary}` : "black",
                 }}
               >
                 {category.strCategory}

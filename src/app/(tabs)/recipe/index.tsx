@@ -44,7 +44,6 @@ export default function TabOneScreen() {
       );
       if (response && response.data) {
         setCategories(response.data.categories);
-        console.log(response.data.categories);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -84,7 +83,7 @@ export default function TabOneScreen() {
             paddingTop: 14 * hp(0.1),
           }}
         >
-          <View
+          {/* <View
             style={{
               marginHorizontal: 16,
               flexDirection: "row",
@@ -102,17 +101,17 @@ export default function TabOneScreen() {
                 borderRadius: hp(2.5),
               }}
             />
-          </View>
+          </View> */}
 
           <View style={{ marginHorizontal: 16, marginBottom: 8, paddingTop:10, paddingBottom:20 }}>
             <Text
               style={{
-                fontSize: hp(4),
+                fontSize: hp(5),
                 fontWeight: 'bold',
                 color: '#2d3748',
               }}
             >
-              Maladie Du <Text style={{ color: '#052c65' }}>Manioc</Text>
+              MY <Text style={{ color: '#052c65' }}>Foods</Text>
             </Text>
           </View>
 
