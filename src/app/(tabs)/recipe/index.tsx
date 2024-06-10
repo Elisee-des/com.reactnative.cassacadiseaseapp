@@ -44,7 +44,6 @@ export default function TabOneScreen() {
       );
       if (response && response.data) {
         setCategories(response.data.categories);
-        console.log(response.data.categories);
       }
     } catch (error) {
       if (error instanceof Error) {
