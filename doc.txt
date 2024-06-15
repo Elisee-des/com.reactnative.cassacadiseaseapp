@@ -1,0 +1,16 @@
+npm i -g eas-cli
+
+eas build:configure
+
+    "preview": {
+      "distribution": "internal",
+        "ios": {
+          "simulator":true
+        },
+        "android": {
+          "buildType":"apk"
+        }
+    },
+
+eas build -p android --profile preview
+eas build -p ios --profile preview

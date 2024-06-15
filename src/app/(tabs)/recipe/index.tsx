@@ -19,6 +19,7 @@ import axios from "axios";
 import Categories from "@/components/Categories";
 import { Category } from "@/types";
 import Recipes from "@/components/Recipes";
+import Colors from "@/constants/Colors";
 
 
 export default function TabOneScreen() {
@@ -40,10 +41,12 @@ export default function TabOneScreen() {
   const getCategories = async () => {
     try {
       const response = await axios.get(
-        "https://www.themealdb.com/api/json/v1/1/categories.php"
+        `http://10.0.2.2:8000/api/categories`
+        // "https://www.themealdb.com/api/json/v1/1/categories.php"
       );
-      if (response && response.data) {
-        setCategories(response.data.categories);
+      if (response && response?.data) {
+        setCategories(response?.data?.classes);
+
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -54,13 +57,15 @@ export default function TabOneScreen() {
     }
   };
 
-  const getRecipes = async (category = "Beef") => {
+  const getRecipes = async (name = "Healthy") => {
     try {
       const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+        `http://10.0.2.2:8000/api/categories/${name}/images`
+        // `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
       );
-      if (response && response.data) {
-        setMeals(response.data.meals);
+      if (response && response?.data) {
+        setMeals(response?.data?.images);
+        console.log(response?.data?.images);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -106,12 +111,12 @@ export default function TabOneScreen() {
           <View style={{ marginHorizontal: 16, marginBottom: 8, paddingTop:10, paddingBottom:20 }}>
             <Text
               style={{
-                fontSize: hp(4),
+                fontSize: hp(5),
                 fontWeight: 'bold',
                 color: '#2d3748',
               }}
             >
-              Maladie Du <Text style={{ color: '#052c65' }}>Manioc</Text>
+              Cassava <Text style={{ color: Colors.primary }}>Diseases</Text>
             </Text>
           </View>
 
@@ -124,10 +129,10 @@ export default function TabOneScreen() {
               borderWidth: 1,
               borderColor: 'black',
               borderRadius: 10,
-              padding: 6,
+              padding: 10,
             }}
           >
-           <View style={{ backgroundColor: 'white', borderRadius: hp(2.5), padding: 2, }}>
+           <View style={{ backgroundColor: 'white', borderRadius: hp(2.5), padding: 4, }}>
             <MagnifyingGlassIcon
               size={hp(2.5)}
               color={"gray"}
@@ -141,7 +146,7 @@ export default function TabOneScreen() {
                   fontSize: hp(1.7),
                   flex: 1,
                   marginBottom: 1,
-                  paddingLeft: 4
+                  paddingLeft: 5
                 }}
               />
           </View>

@@ -4,7 +4,7 @@
     "slug": "CassacaDisease",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/cassacadiseases.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -17,9 +17,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/cassacadiseases.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.eliseedes.CassacaDisease"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +32,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4dcbfd31-a726-4c89-915c-ad0b21c07eff"
+      }
     }
   }
 }

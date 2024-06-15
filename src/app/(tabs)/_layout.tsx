@@ -35,7 +35,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="detect"
         options={{
           title: 'Detection',
           tabBarIcon: ({ color }) => <MaterialTabBarIcon name="smoke-detector-outline" color={color} />,

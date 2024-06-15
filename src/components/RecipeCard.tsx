@@ -15,7 +15,7 @@ const RecipesCard = ({ index, item }: RecipeCardProps) => {
     const isEven = index % 2 === 0;
 
   return (
-    <Link href={`/${segments[0]}/recipe/${item.idMeal}`} asChild>
+    <Link href={`/${segments[0]}/recipe/${item.id}`} asChild>
       <Pressable
         style={{
           width: "100%",
@@ -24,11 +24,11 @@ const RecipesCard = ({ index, item }: RecipeCardProps) => {
         }}
       >
         <Image
-          source={{ uri: item.strMealThumb }}
+          source={{ uri: `http://10.0.2.2:8000/storage/${item.path}` }}
           style={{
             width: "100%",
             height: index % 3 === 0 ? hp(25) : hp(35),
-            borderRadius: 35,
+            borderRadius: hp(3),
           }}
         />
 
@@ -39,8 +39,8 @@ const RecipesCard = ({ index, item }: RecipeCardProps) => {
             bottom: 0,
             width: "100%",
             height: hp(20),
-            borderBottomLeftRadius: 35,
-            borderBottomRightRadius: 35,
+            borderBottomLeftRadius: 22,
+            borderBottomRightRadius: 22,
           }}
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 1 }}
@@ -57,9 +57,9 @@ const RecipesCard = ({ index, item }: RecipeCardProps) => {
             maxWidth: "80%",
           }}
         >
-          {item.strMeal.length > 20
-            ? item.strMeal.slice(0, 20) + "..."
-            : item.strMeal}
+          {item.nom.length > 20
+            ? item.nom.slice(0, 20) + "..."
+            : item.nom}
         </Text>
       </Pressable>
     </Link>

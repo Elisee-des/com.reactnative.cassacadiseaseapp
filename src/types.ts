@@ -1,14 +1,15 @@
 export interface Category {
-    idCategory: string;
-    strCategory: string;
-    strCategoryThumb: string;
-    strCategoryDescription: string;
+    id: string;
+    has_name: string;
+    sigle: string;
+    path: string;
+    description: string;
   }
   
   export interface Meal {
-    idMeal: string;
-    strMeal: string;
-    strMealThumb: string;
+    id: string;
+    nom: string;
+    path: string;
     // Ajoutez d'autres propriétés si nécessaire
   }
   
