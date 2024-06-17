@@ -1,19 +1,56 @@
 {
   "expo": {
+<<<<<<< HEAD
     "extra": {
       "eas": {
         "projectId": "d06245d0-bfa3-44fa-903f-2e393c89c94b"
       }
+=======
+    "name": "CassacaDisease",
+    "slug": "CassacaDisease",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/cassacadiseases.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/cassacadiseases.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.eliseedes.CassacaDisease"
+>>>>>>> 97ac1c8153f1ea8d7d25b6b83acd5cad46596ae2
     },
     "permissions": [
       "CAMERA"
     ],
+<<<<<<< HEAD
     "android": {
       "package": "com.eliseedes.cassacadiseases",
       "permissions": [
         "CAMERA",
         "WRITE_EXTERNAL_STORAGE"
       ]
+=======
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4dcbfd31-a726-4c89-915c-ad0b21c07eff"
+      }
+>>>>>>> 97ac1c8153f1ea8d7d25b6b83acd5cad46596ae2
     }
   }
 }

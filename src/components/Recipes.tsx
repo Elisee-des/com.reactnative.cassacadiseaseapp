@@ -6,6 +6,7 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 import RecipesCard from "@/components/RecipeCard";
 import { Meal } from "@/types";
 import Colors from "@/constants/Colors";
+import * as Haptics from "expo-haptics";
 
 interface RecipesProps {
     meals: Meal[];
@@ -13,6 +14,9 @@ interface RecipesProps {
 }
 
 const Recipes = ({ meals, categories } : RecipesProps) => {
+  
+  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
   return (
     <Animated.View
       style={{
@@ -31,7 +35,7 @@ const Recipes = ({ meals, categories } : RecipesProps) => {
           marginBottom: hp(2),
         }}
       >
-        {meals.length} Recipes
+        {meals.length} Images associées
       </Text>
 
       <Animated.View entering={FadeInDown.delay(200).duration(700).springify().damping(12)}>
@@ -40,7 +44,7 @@ const Recipes = ({ meals, categories } : RecipesProps) => {
         ) : (
           <MasonryList
           data={meals as Meal[]}
-          keyExtractor={(item) => item.idMeal.toString()}
+          keyExtractor={(item) => item.id.toString()}
             numColumns={2}
             showsVerticalScrollIndicator={false}
             renderItem={({ item, i }) => <RecipesCard item={item as Meal} index={i} />}

@@ -3,6 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image, StyleSheet } from "rea
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { Category } from "@/types";
 import Colors from "@/constants/Colors";
+import * as Haptics from "expo-haptics";
 
 interface CategoriesProps {
   categories: Category[];
@@ -15,6 +16,9 @@ export default function Categories({
   activeCategory,
   handleChangeCategory,
 }: CategoriesProps) {
+
+  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
   return (
     <View>
       <ScrollView
@@ -25,19 +29,20 @@ export default function Categories({
         }}
       >
         {categories.map((category, index) => {
-          const isActive = category.strCategory === activeCategory;
+          const isActive = category.has_name === activeCategory;
           const buttonStyle = isActive ? styles.activeButton : styles.inactiveButton;
+          const truncatedName = category?.sigle?.substring(0, 7); // Tronquer à 7 caractères
 
           return (
             <TouchableOpacity
               key={index}
               style={{ marginRight: 10 }}
-              onPress={() => handleChangeCategory(category.strCategory)}
+              onPress={() => handleChangeCategory(category.has_name)}
             >
               <View style={buttonStyle}>
                 <Image
-                  source={{ uri: category.strCategoryThumb }}
-                  style={{ width: hp(8), height: hp(8), borderRadius: hp(4) }}
+                    source={{ uri: `http://10.0.2.2:8000/storage/${category.path}` }}
+                    style={{ width: hp(9), height: hp(9), borderRadius: hp(4) }}
                 />
               </View>
               <Text
@@ -45,10 +50,10 @@ export default function Categories({
                   textAlign: "center",
                   marginTop: 5,
                   fontSize: hp(2),
-                  color: isActive ? `${Colors.primary}` : "black",
+                  color: isActive ? Colors.primary : "black",
                 }}
               >
-                {category.strCategory}
+                {truncatedName}
               </Text>
             </TouchableOpacity>
           );
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
   activeButton: {
     borderRadius: 10,
     padding: 6,
-    backgroundColor: "#f64e32",
+    backgroundColor: Colors.primary,
   },
   inactiveButton: {
     borderRadius: 10,
