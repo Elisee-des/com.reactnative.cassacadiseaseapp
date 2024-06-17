@@ -24,12 +24,8 @@
     "expo": "~51.0.9",
     "expo-file-system": "~15.4.4",
     "expo-font": "~12.0.6",
-<<<<<<< HEAD
-    "expo-image-picker": "~14.3.2",
-=======
     "expo-haptics": "~12.4.0",
     "expo-image-picker": "~15.0.5",
->>>>>>> 97ac1c8153f1ea8d7d25b6b83acd5cad46596ae2
     "expo-linear-gradient": "^13.0.2",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.14",
