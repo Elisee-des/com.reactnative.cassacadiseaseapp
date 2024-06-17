@@ -24,7 +24,7 @@ const RecipesCard = ({ index, item }: RecipeCardProps) => {
         }}
       >
         <Image
-          source={{ uri: `http://10.0.2.2:8000/storage/${item.path}` }}
+          source={{ uri: `http://192.168.43.24:8000/storage/${item.path}` }}
           style={{
             width: "100%",
             height: index % 3 === 0 ? hp(25) : hp(35),

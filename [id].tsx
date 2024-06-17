@@ -20,7 +20,6 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
-import TabScreen from "@/components/TabScreen";
 
 export default function RecipeDetailsScreen() {
   const { id: idString } = useLocalSearchParams();
@@ -65,127 +64,121 @@ export default function RecipeDetailsScreen() {
 
   console.log("Meal", meal);
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
-
-  // return (
-  //   <ScrollView
-  //     style={styles.container}
-  //     showsVerticalScrollIndicator={false}
-  //     contentContainerStyle={styles.scrollViewContent}
-  //   >
-  //     <StatusBar style="light" />
-  //     <Stack.Screen options={{ headerShown: false }} />
-
-  //     {/* Recipe Image */}
-  //     <View style={styles.imageContainer}>
-  //       <CachedImage
-  //         uri={meal.strMealThumb}
-  //         sharedTransitionTag={meal.strMeal}
-  //         style={styles.image}
-  //       />
-  //     </View>
-
-  //     {/* Back Button and Favorite Icon */}
-  //     <View style={styles.headerIconsContainer}>
-  //       <View style={styles.iconWrapper}>
-  //         <Link href={'/(tabs)'}>
-  //           <ChevronLeftIcon
-  //             size={hp(3.5)}
-  //             color={"#f64e32"}
-  //             strokeWidth={4.5}
-  //           />
-  //         </Link>
-  //       </View>
-
-  //       <View style={styles.iconWrapper}>
-  //         <TouchableOpacity onPress={() => setIsFavourite(!isFavourite)}>
-  //           <HeartIcon
-  //             size={hp(3.5)}
-  //             color={isFavourite ? "#f64e32" : "gray"}
-  //             strokeWidth={4.5}
-  //           />
-  //         </TouchableOpacity>
-  //       </View>
-  //     </View>
-
-  //     {/* Meal Description */}
-  //     {isLoading ? (
-  //       <Loading size="large" style={styles.loadingIndicator} />
-  //     ) : (
-  //       <View style={styles.mealDescriptionContainer}>
-  //         {/* Meal Name */}
-  //         <Animated.View
-  //           style={styles.mealNameContainer}
-  //           entering={FadeInDown.delay(200)
-  //             .duration(700)
-  //             .springify()
-  //             .damping(12)}
-  //         >
-  //           <Text style={styles.mealNameText}>
-  //             {meal?.strMeal}
-  //           </Text>
-
-  //           <Text style={styles.mealAreaText}>
-  //             {meal?.strArea}
-  //           </Text>
-  //         </Animated.View>
-
-  //         {/* Ingredients */}
-  //         <Animated.View
-  //           style={styles.ingredientsContainer}
-  //           entering={FadeInDown.delay(300)
-  //             .duration(700)
-  //             .springify()
-  //             .damping(12)}
-  //         >
-  //           <Text style={styles.ingredientsTitle}>
-  //             Ingredients
-  //           </Text>
-
-  //           <View style={styles.ingredientsList}>
-  //           {ingredientsIndexes(meal).map((i) => (
-  //             <View style={styles.ingredientItem} key={i}>
-  //               <View style={styles.ingredientBullet} />
-  //               <View style={styles.ingredientTextContainer}>
-  //                 <Text style={styles.ingredientText}>
-  //                   {meal[`strIngredient${i}`]}
-  //                 </Text>
-  //                 <Text style={styles.ingredientMeasureText}>
-  //                   {meal[`strMeasure${i}`]}
-  //                 </Text>
-  //               </View>
-  //             </View>
-  //           ))}
-  //         </View>
-  //         </Animated.View>
-
-  //         {/* Instructions */}
-  //         <Animated.View
-  //           style={styles.instructionsContainer}
-  //           entering={FadeInDown.delay(400)
-  //             .duration(700)
-  //             .springify()
-  //             .damping(12)}
-  //         >
-  //           <Text style={styles.instructionsTitle}>
-  //             Instructions
-  //           </Text>
-
-  //           <Text style={styles.instructionsText}>
-  //             {meal?.strInstructions}
-  //           </Text>
-  //         </Animated.View>
-  //       </View>
-  //     )}
-  //   </ScrollView>
-  // );
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
-    <SafeAreaView>
-      <TabScreen />
-    </SafeAreaView>
+    <ScrollView
+      style={styles.container}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.scrollViewContent}
+    >
+      <StatusBar style="light" />
+      <Stack.Screen options={{ headerShown: false }} />
+
+      {/* Recipe Image */}
+      <View style={styles.imageContainer}>
+        <CachedImage
+          uri={meal.strMealThumb}
+          sharedTransitionTag={meal.strMeal}
+          style={styles.image}
+        />
+      </View>
+
+      {/* Back Button and Favorite Icon */}
+      <View style={styles.headerIconsContainer}>
+        <View style={styles.iconWrapper}>
+          <Link href={'/(tabs)'}>
+            <ChevronLeftIcon
+              size={hp(3.5)}
+              color={"#f64e32"}
+              strokeWidth={4.5}
+            />
+          </Link>
+        </View>
+
+        <View style={styles.iconWrapper}>
+          <TouchableOpacity onPress={() => setIsFavourite(!isFavourite)}>
+            <HeartIcon
+              size={hp(3.5)}
+              color={isFavourite ? "#f64e32" : "gray"}
+              strokeWidth={4.5}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Meal Description */}
+      {isLoading ? (
+        <Loading size="large" style={styles.loadingIndicator} />
+      ) : (
+        <View style={styles.mealDescriptionContainer}>
+          {/* Meal Name */}
+          <Animated.View
+            style={styles.mealNameContainer}
+            entering={FadeInDown.delay(200)
+              .duration(700)
+              .springify()
+              .damping(12)}
+          >
+            <Text style={styles.mealNameText}>
+              {meal?.strMeal}
+            </Text>
+
+            <Text style={styles.mealAreaText}>
+              {meal?.strArea}
+            </Text>
+          </Animated.View>
+
+          {/* Ingredients */}
+          <Animated.View
+            style={styles.ingredientsContainer}
+            entering={FadeInDown.delay(300)
+              .duration(700)
+              .springify()
+              .damping(12)}
+          >
+            <Text style={styles.ingredientsTitle}>
+              Ingredients
+            </Text>
+
+            <View style={styles.ingredientsList}>
+            {ingredientsIndexes(meal).map((i) => (
+              <View style={styles.ingredientItem} key={i}>
+                <View style={styles.ingredientBullet} />
+                <View style={styles.ingredientTextContainer}>
+                  <Text style={styles.ingredientText}>
+                    {meal[`strIngredient${i}`]}
+                  </Text>
+                  <Text style={styles.ingredientMeasureText}>
+                    {meal[`strMeasure${i}`]}
+                  </Text>
+                </View>
+              </View>
+            ))}
+          </View>
+          </Animated.View>
+
+          {/* Instructions */}
+          <Animated.View
+            style={styles.instructionsContainer}
+            entering={FadeInDown.delay(400)
+              .duration(700)
+              .springify()
+              .damping(12)}
+          >
+            <Text style={styles.instructionsTitle}>
+              Instructions
+            </Text>
+
+            <Text style={styles.instructionsText}>
+              {meal?.strInstructions}
+            </Text>
+          </Animated.View>
+        </View>
+      )}
+    </ScrollView>
   );
 
 }

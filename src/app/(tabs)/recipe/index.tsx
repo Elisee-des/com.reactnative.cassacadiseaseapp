@@ -46,7 +46,6 @@ export default function TabOneScreen() {
       );
       if (response && response?.data) {
         setCategories(response?.data?.classes);
-
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -65,7 +64,6 @@ export default function TabOneScreen() {
       );
       if (response && response?.data) {
         setMeals(response?.data?.images);
-        console.log(response?.data?.images);
       }
     } catch (error) {
       if (error instanceof Error) {
