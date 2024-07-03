@@ -12,6 +12,7 @@ import Colors from "@/constants/Colors";
 import * as FileSystem from "expo-file-system";
 import Loading from "@/components/Loading";
 import * as Haptics from "expo-haptics";
+import * as ImageManipulator from "expo-image-manipulator";
 
 export default function Detect() {
   const [image, setImage] = useState<string | null>(null);
@@ -84,6 +85,8 @@ export default function Detect() {
     }
   };
 
+  console.log(image);
+
   const resetHandler = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
@@ -102,9 +105,13 @@ export default function Detect() {
     setLoading(true);
 
     try {
-      const base64 = await FileSystem.readAsStringAsync(image, {
-        encoding: FileSystem.EncodingType.Base64,
-      });
+      const manipulatedImage = await ImageManipulator.manipulateAsync(
+        image,
+        [],
+        { base64: true }
+      );
+
+      const base64 = manipulatedImage.base64;
 
       const res = await fetch(`http://10.0.2.2:5000/predict`, {
         method: "POST",
@@ -122,6 +129,7 @@ export default function Detect() {
 
       setLoading(false);
     } catch (error) {
+      console.error("Prediction error:", error);
       Alert.alert("Erreur", "Une erreur est survenue lors de la prédiction.");
       setLoading(false);
     }
