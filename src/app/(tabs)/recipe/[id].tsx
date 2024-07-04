@@ -31,46 +31,40 @@ const Detail1 = ({ meal }: { meal: any }) => (
     <Text style={styles.content}><Text style={{ fontWeight:"bold" }}>{moment(meal?.created_at).format('DD/MM/YYYY HH:mm')}</Text></Text>
 
     <Text style={styles.title}>Couleurs</Text>
-    {meal?.couleurs?.map((couleur: any, index: number) => (
-      <View key={index} style={styles.couleurContainer}>
-        <Text style={styles.content}>Label: <Text style={{ fontWeight:"bold" }}>{couleur.label}</Text></Text>
-        <Text style={styles.content}>Description: <Text style={{ fontWeight:"bold" }}>{couleur.description}</Text></Text>
-        <Text style={styles.content}>Teinte Moyenne: <Text style={{ fontWeight:"bold" }}>{couleur.has_hue_mean}°</Text></Text>
-        <Text style={styles.content}>Écart Type de Teinte: <Text style={{ fontWeight:"bold" }}>{couleur.has_hue_std}°</Text></Text>
-        <Text style={styles.content}>Saturation Moyenne: <Text style={{ fontWeight:"bold" }}>{couleur.has_saturation_mean}%</Text></Text>
-        <Text style={styles.content}>Écart Type de Saturation: <Text style={{ fontWeight:"bold" }}>{couleur.has_saturation_std}%</Text></Text>
-        <Text style={styles.content}>Valeur Moyenne: <Text style={{ fontWeight:"bold" }}>{couleur.has_value_mean}%</Text></Text>
-        <Text style={styles.content}>Écart Type de Valeur: <Text style={{ fontWeight:"bold" }}>{couleur.has_value_std}%</Text></Text>
+      <View style={styles.couleurContainer}>
+        <Text style={styles.content}>Label: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.label}</Text></Text>
+        <Text style={styles.content}>Description: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.description}</Text></Text>
+        <Text style={styles.content}>Teinte Moyenne: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.has_hue_mean}°</Text></Text>
+        <Text style={styles.content}>Écart Type de Teinte: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.has_hue_std}°</Text></Text>
+        <Text style={styles.content}>Saturation Moyenne: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.has_saturation_mean}%</Text></Text>
+        <Text style={styles.content}>Écart Type de Saturation: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.has_saturation_std}%</Text></Text>
+        <Text style={styles.content}>Valeur Moyenne: <Text style={{ fontWeight:"bold" }}>{meal?.couleur.has_value_mean}%</Text></Text>
+        <Text style={styles.content}>Écart Type de Valeur: <Text style={{ fontWeight:"bold" }}>{meal?.couleur?.has_value_std}%</Text></Text>
       </View>
-    ))}
 
     <Text style={styles.title}>Textures</Text>
-    {meal?.textures?.map((texture: any, index: number) => (
-      <View key={index} style={styles.textureContainer}>
-        <Text style={styles.content}>Label: <Text style={{ fontWeight:"bold" }}>{texture.label}</Text></Text>
-        <Text style={styles.content}>Description: <Text style={{ fontWeight:"bold" }}>{texture.description}</Text></Text>
-        <Text style={styles.content}>Contraste: <Text style={{ fontWeight:"bold" }}>{texture.has_contrast}</Text></Text>
-        <Text style={styles.content}>Dissimilarité: <Text style={{ fontWeight:"bold" }}>{texture.has_dissimilarity}</Text></Text>
-        <Text style={styles.content}>Énergie: <Text style={{ fontWeight:"bold" }}>{texture.has_energy}</Text></Text>
-        <Text style={styles.content}>Homogénéité: <Text style={{ fontWeight:"bold" }}>{texture.has_homogeneity}</Text></Text>
-        <Text style={styles.content}>Corrélation: <Text style={{ fontWeight:"bold" }}>{texture.has_correlation}</Text></Text>
+      <View style={styles.textureContainer}>
+        <Text style={styles.content}>Label: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.label}</Text></Text>
+        <Text style={styles.content}>Description: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.description}</Text></Text>
+        <Text style={styles.content}>Contraste: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.has_contrast}</Text></Text>
+        <Text style={styles.content}>Dissimilarité: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.has_dissimilarity}</Text></Text>
+        <Text style={styles.content}>Énergie: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.has_energy}</Text></Text>
+        <Text style={styles.content}>Homogénéité: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.has_homogeneity}</Text></Text>
+        <Text style={styles.content}>Corrélation: <Text style={{ fontWeight:"bold" }}>{meal?.texture?.has_correlation}</Text></Text>
       </View>
-    ))}
 
     <Text style={styles.title}>Contours</Text>
-    {meal?.contours?.map((contour: any, index: number) => (
-      <View key={index} style={styles.contourContainer}>
-        <Text style={styles.content}>Label: <Text style={{ fontWeight:"bold" }}>{contour.label}</Text></Text>
-        <Text style={styles.content}>Description: <Text style={{ fontWeight:"bold" }}>{contour.description}</Text></Text>
-        <Text style={styles.content}>Surface: <Text style={{ fontWeight:"bold" }}>{contour.has_area} px²</Text></Text>
-        <Text style={styles.content}>Périmètre: <Text style={{ fontWeight:"bold" }}>{contour.has_perimeter} px</Text></Text>
-        <Text style={styles.content}>Largeur: <Text style={{ fontWeight:"bold" }}>{contour.has_width} px</Text></Text>
-        <Text style={styles.content}>Hauteur: <Text style={{ fontWeight:"bold" }}>{contour.has_height} px</Text></Text>
-        <Text style={styles.content}>Surface Normalisée: <Text style={{ fontWeight:"bold" }}>{contour.has_normalized_area}</Text></Text>
-        <Text style={styles.content}>Périmètre Normalisé: <Text style={{ fontWeight:"bold" }}>{contour.has_normalized_perimeter}</Text></Text>
-        <Text style={styles.content}>Aspect Ratio: <Text style={{ fontWeight:"bold" }}>{contour.has_aspect_ratio}</Text></Text>
+      <View style={styles.contourContainer}>
+        <Text style={styles.content}>Label: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.label}</Text></Text>
+        <Text style={styles.content}>Description: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.description}</Text></Text>
+        <Text style={styles.content}>Surface: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_area} px²</Text></Text>
+        <Text style={styles.content}>Périmètre: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_perimeter} px</Text></Text>
+        <Text style={styles.content}>Largeur: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_width} px</Text></Text>
+        <Text style={styles.content}>Hauteur: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_height} px</Text></Text>
+        <Text style={styles.content}>Surface Normalisée: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_normalized_area}</Text></Text>
+        <Text style={styles.content}>Périmètre Normalisé: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_normalized_perimeter}</Text></Text>
+        <Text style={styles.content}>Aspect Ratio: <Text style={{ fontWeight:"bold" }}>{meal?.contour?.has_aspect_ratio}</Text></Text>
       </View>
-    ))}
   </ScrollView>
 );
 
